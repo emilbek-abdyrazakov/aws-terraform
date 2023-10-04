@@ -8,11 +8,5 @@ module "vpc" {
   private_subnets = [var.private_cidr1, var.private_cidr2, var.private_cidr3]
   public_subnets  = [var.public_cidr1, var.public_cidr2, var.public_cidr3]
 
-  enable_nat_gateway = false
-  enable_vpn_gateway = false
 
-  tags = {
-    Terraform = "true"
-    Environment = "dev"
-  }
 }
