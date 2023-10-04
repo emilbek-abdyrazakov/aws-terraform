@@ -1,13 +1,18 @@
 module "vpc" {
   source = "./modules"
 
-  environment               = var.environment
-  vpc_cidr_block            = var.vpc_cidr_block
-  availability_zones        = [ var.az1, var.az2, var.az3 ]
-  public_subnet_cidr_blocks = [ var.public_cidr1, var.public_cidr2, var.public_cidr3 ]
-  private_subnet_cidr_blocks = [ var.private_cidr1, var.private_cidr2, var.private_cidr3 ]
-}
+  name = "my-vpc"
+  cidr = var.cidr_block
 
-output "vpc_id" {
-  value = module.vpc.id
+  azs             = [var.az1, var.az2, var.az3]
+  private_subnets = [var.private_cidr1, var.private_cidr2, var.private_cidr3]
+  public_subnets  = [var.public_cidr1, var.public_cidr2, var.public_cidr3]
+
+  enable_nat_gateway = false
+  enable_vpn_gateway = false
+
+  tags = {
+    Terraform = "true"
+    Environment = "dev"
+  }
 }
