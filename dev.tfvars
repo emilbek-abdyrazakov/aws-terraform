@@ -1,10 +1,3 @@
-s3_bucket = "demo-butt-test-name"
-s3_folder_project = "terraform_vpc"
-s3_folder_region = "us-east-1"
-s3_folder_type = "class"
-s3_tfstate_file = "infrastructure.tfstate"
-environment = "dev"
-
 region   = "us-east-1"
 az1      = "us-east-1a"
 az2      = "us-east-1b"
